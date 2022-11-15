@@ -20,5 +20,5 @@ jobs:
         username: ${{secrets.server_username}}
         server : ${{secrets.server_ip}}
         ssh_private_key: "${{secrets.server_ssh}}"
-        localpath : './*'
+        local_path : './*'
         remote_path: '/var/www/html'
