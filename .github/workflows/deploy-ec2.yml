@@ -12,7 +12,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
     
-    - run: ls - al
+    - run: ls -al
     
     - name : Deploy
       uses : wlixcc/SFTP-Deploy-Action@v1.0
