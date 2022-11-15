@@ -1,0 +1,24 @@
+name: Deploy to Amazon ECS
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+    
+    - run: ls - al
+    
+    - name : Deploy
+      uses : wlixcc/SFTP-Deploy-Action@v1.0
+      with:
+        username: ${{secrets.server_username}}
+        server : ${{secrets.server_ip}}
+        ssh_private_key: "${{secrets.server_ssh}}"
+        localpath : './*'
+        remote_path: '/var/www/html'
